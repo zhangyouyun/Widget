@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/app/src/main/java/android/com/widget/CustomBtn.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/android/com/widget/CustomButton.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/android/com/widget/CustomButtonActivity.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/android/com/widget/MyButton.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/android/com/widget/MyButtonItem.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/android/com/widget/SlideItem.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/android/com/widget/SlideLineTextView.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/android/com/widget/SlideTitle.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/android/com/widget/SlideTitleTextView.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/android/com/widget/TestActivity.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_custom_button.xml" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/layout/slide_title_textview.xml" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/layout/t.xml" charset="GBK" />
+    <file url="PROJECT" charset="UTF-8" />
+  </component>
+</project>
