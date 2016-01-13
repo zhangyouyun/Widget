@@ -1,14 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="android.com.widget.MainActivity">
+    android:orientation="vertical"
+  >
+    <android.com.widget.SlideTitle
+        android:id="@+id/slideTitle"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"/>
 
-   <TextView
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:text="kkkk"
-       android:textColor="#666666"/>
-</RelativeLayout>
+    <TextView
+        android:id="@+id/fragment2_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="This is test"
+        android:textColor="#000000"
+        android:textSize="50sp"
+        android:layout_gravity="center"/>
+</LinearLayout>

@@ -4,11 +4,36 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="android.com.widget.MainActivity">
+    tools:context="android.com.widget.MainActivity"
+    android:background="#d3d3d3">
 
     <android.com.widget.SlideTitle
         android:id="@+id/slideTitle"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_alignParentTop="true"/>
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        />
+<Button
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="变成一个"
+    android:gravity="center"
+    android:id="@+id/changeOne"
+    android:layout_below="@+id/slideTitle"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="变成两个"
+        android:gravity="center"
+        android:id="@+id/changeTwo"
+        android:layout_below="@+id/changeOne"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="还原"
+        android:gravity="center"
+        android:id="@+id/back"
+        android:layout_below="@+id/changeTwo"/>
 </RelativeLayout>

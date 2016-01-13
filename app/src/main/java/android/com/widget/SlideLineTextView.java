@@ -18,9 +18,9 @@ public class SlideLineTextView extends TextView {
 	private int width = 0;
 	protected void onDraw(Canvas canvas) {
 		super.onDraw(canvas);
-		Log.e(TAG, "onDraw:width = " + this.getWidth());
 		 canvas.drawLine(startX, this.getHeight(), startX + width,
 				 this.getHeight(), paint);
+
 	}
 
 	public SlideLineTextView(Context context, AttributeSet attrs) {
@@ -37,15 +37,15 @@ public class SlideLineTextView extends TextView {
 
 	private void init() {
 		paint = new Paint();// 新建画笔
-		paint.setAntiAlias(true);// 平滑处理
+		paint.setAntiAlias(true);// 变得光滑
 		paint.setColor(Color.parseColor(TEXT_COLOR));// 默认文字颜色
-		paint.setStrokeWidth(4 * scale);
+//		paint.setStrokeWidth(4 * scale);
+		paint.setStrokeWidth((float) 10.0);
 	}
 
 	public void setFrame(int startX, int width) {
 		this.startX = startX;
 		this.width = width;
-		Log.e(TAG, "startX = " + startX + ",width = " + width);
 		postInvalidate();
 	}
 	

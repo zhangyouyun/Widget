@@ -24,7 +24,7 @@ public class SlideTitle extends HorizontalScrollView {
 	private final String TAG = "SlideTitle";
 	private Context mContext = null;
 
-	private RelativeLayout contentRL = null;
+	private RelativeLayout content = null;
 	private LinearLayout cateItemLayout = null;// 存放子项TextView的线性布局�
 	private SlideLineTextView lineView = null; // 下划线�
 	private TitleFlowAdapter tfa;// 适配器�
@@ -35,10 +35,10 @@ public class SlideTitle extends HorizontalScrollView {
 	private int margin = 0;
 
 	// 接口，点击标题时处理事件
+
 	public interface SlideTitleOnClickListener {
 		public void slideTitleOnClick(SlideItem item);
 	}
-
 	private SlideTitleOnClickListener slideTitleOnClickListener;
 
 	public void setSlideTitleOnClickListener(SlideTitleOnClickListener slideTitleOnClickListener) {
@@ -62,16 +62,14 @@ public class SlideTitle extends HorizontalScrollView {
 	}
 
 	private void initLayout() {
-		margin = (int) getContext().getResources().getDimension(R.dimen.dp10);
-		contentRL = new RelativeLayout(mContext); // 标题页签容器
+		content = new RelativeLayout(mContext); // 标题页签容器
 		LayoutParams contentLp = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
-		addView(contentRL, contentLp);
+		addView(content, contentLp);
 		mOnChickListener = new MyOnChickListener();
 		// 线性布局
 		cateItemLayout = new LinearLayout(mContext); // 标题页签容器
-		// cateItemLayout.setBackgroundColor(Color.YELLOW);
 		LayoutParams cateItemLp = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
-		contentRL.addView(cateItemLayout, cateItemLp);
+		content.addView(cateItemLayout, cateItemLp);
 		//下划线
 		lineView = new SlideLineTextView(mContext);
 		lineView.setColor(getResources().getColor(R.color.msg_page_blue));
@@ -87,7 +85,6 @@ public class SlideTitle extends HorizontalScrollView {
 			} else {
 				totalWidth += view.getViewContentWidth() + margin;
 			}
-			Log.e(TAG, "totalWidth = " + totalWidth);
 		}
 		view = null;
 		return totalWidth;
@@ -100,7 +97,7 @@ public class SlideTitle extends HorizontalScrollView {
 		mCurrentPage = 0;
 		tfa = new TitleFlowAdapter(mContext, list);
 		cateItemLayout.removeAllViews();
-		contentRL.removeView(lineView);
+		content.removeView(lineView);
 		int	screenWidth = mContext.getResources().getDisplayMetrics().widthPixels;
 		int itemWidth = 0;
 		int count = tfa.getCount();
@@ -111,7 +108,6 @@ public class SlideTitle extends HorizontalScrollView {
 			itemWidth = (screenWidth - margin) / count - margin;
 			for (int i = 0; i < count; i++) {
 				SlideTitleTextView view = (SlideTitleTextView) tfa.getView(i, null, this);
-				// view.setBackgroundColor(Color.RED);
 				view.setOnClickListener(mOnChickListener);// 点击事件
 				LinearLayout.LayoutParams viewLp = new LinearLayout.LayoutParams(itemWidth, LayoutParams.MATCH_PARENT);
 				view.setRealWidth(itemWidth);
@@ -129,7 +125,6 @@ public class SlideTitle extends HorizontalScrollView {
 			totalWidth = 0;
 			for (int i = 0; i < count; i++) {
 				SlideTitleTextView view = (SlideTitleTextView) tfa.getView(i, null, this);
-				// view.setBackgroundColor(Color.RED);
 				LinearLayout.LayoutParams viewLp = new LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT,
 						LayoutParams.MATCH_PARENT);
 				view.setRealWidth(view.getViewContentWidth());
@@ -148,13 +143,11 @@ public class SlideTitle extends HorizontalScrollView {
 		}
 		// 下划线�
 		Log.e(TAG, "-totalWidth- = " + totalWidth);
-		// lineView.setBackgroundColor(Color.GREEN);
 		RelativeLayout.LayoutParams lineViewLp = new RelativeLayout.LayoutParams((int) totalWidth,
 				(int) getContext().getResources().getDimension(R.dimen.dp3));
 		lineViewLp.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
-		contentRL.addView(lineView, lineViewLp);
+		content.addView(lineView, lineViewLp);
 		// 默认下划线位置
-//		setLineViewFrame();
 
 		int i = -1;
 		for (SlideItem item:list){
@@ -197,11 +190,11 @@ public class SlideTitle extends HorizontalScrollView {
 					}
 					lp.width = (int) (view.getRealWidth() + 0.5f);
 				}
-				contentRL.removeView(lineView);
+				content.removeView(lineView);
 				RelativeLayout.LayoutParams lineViewLp = new RelativeLayout.LayoutParams((int) newScrollWidth,
 						(int) getContext().getResources().getDimension(R.dimen.dp3));
 				lineViewLp.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
-				contentRL.addView(lineView, lineViewLp);
+				content.addView(lineView, lineViewLp);
 				setTitleFlowScroll(mCurrentPage);
 				setLineViewFrame();
 				getViewTreeObserver().removeGlobalOnLayoutListener(this);
@@ -223,7 +216,6 @@ public class SlideTitle extends HorizontalScrollView {
 
 			@Override
 			public void run() {
-				// TODO Auto-generated method stub
 				AccelerateDecelerateInterpolator interpolator = new AccelerateDecelerateInterpolator(); // 先加速后减速的动画插补器
 				SlideTitleTextView curView = (SlideTitleTextView) tfa.lv.get(curPosition),
 						newView = (SlideTitleTextView) tfa.lv.get(newPosition);
@@ -270,8 +262,6 @@ public class SlideTitle extends HorizontalScrollView {
 		int curTitleWidth = (int) curView.getRealWidth();
 		if (arg0 == mCurrentPage - 1) {// 左移
 			// 获取左边标题的宽度
-			// SlideTitleTextView view = (SlideTitleTextView)
-			// cateItemLayout.getChildAt(arg0);
 			SlideTitleTextView view = (SlideTitleTextView) tfa.lv.get(arg0);
 			int newTitleWidth = (int) view.getRealWidth();
 			float difference = curTitleWidth - newTitleWidth;
