@@ -148,7 +148,7 @@ public class SlideTitle extends HorizontalScrollView {
 		lineViewLp.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
 		content.addView(lineView, lineViewLp);
 		// 默认下划线位置
-
+		resetWidth(tfa.mls,1,1);
 		int i = -1;
 		for (SlideItem item:list){
 			i++;

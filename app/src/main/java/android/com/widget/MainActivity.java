@@ -3,6 +3,7 @@ package android.com.widget;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.Looper;
+import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -26,11 +27,13 @@ public class MainActivity extends AppCompatActivity {
         setTitle(3);
         aa();
 
+
         changeOne=(Button)findViewById(R.id.changeOne);
         changeTwo=(Button)findViewById(R.id.changeTwo);
         changeOne.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
+//                MainActivity.this.setVisibility(0);
                 setTitle(1);
                 aa();
             }
